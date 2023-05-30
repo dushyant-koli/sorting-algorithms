@@ -1,0 +1,164 @@
+// selection sort code
+#include <iostream>
+using namespace std;
+ 
+// Function for Selection sort
+void selectionSort(int arr[], int n)
+{
+    int i, j, minindex;
+ 
+    // One by one move boundary of
+    // unsorted subarray
+    for (i = 0; i < n - 1; i++) {
+ 
+        // Find the minimum element in
+        // unsorted array
+        minindex = i;
+        for (j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minindex]) 
+//min index i.e, I ke aage ke elements j area ke less than I  
+                minindex = j;// minidx  me j ajyega
+        }
+ 
+        // Swap the found minimum element
+        // with the first element
+        if (minindex != i)
+            swap(arr[minindex], arr[i]);
+    }
+}//selection sort func end
+ 
+// Function to print an array
+void printArray(int arr[], int n)
+{
+    int i;// declare kiya before print
+    for (i = 0; i < n; i++) { //for loop 0 to n tak print ke liye
+        cout << arr[i]<<" ";//print element from 0 to size sorted 
+    
+    }
+}
+ 
+// Driver program
+int main()
+{
+    int arr[] = { 64, 25, 12, 22, 11 };
+    int n = sizeof(arr) / sizeof(arr[0]);//declare size of element 
+                                         //=size of array/no. of integer
+ 
+    // Function Call
+    selectionSort(arr, n);
+    cout << "Sorted array: \n";
+    printArray(arr, n);
+    return 0;
+}
+
+
+
+///bubble sort cpp code 
+// bubble sort code 
+#include <iostream>
+using namespace std;
+// buublesortfunct then print array func
+void bubblesort(int arr[],int n){
+    for(int i=1;i<n;i++){ //n-1 tak round <n tak for loop chalao
+        //for round 1 to n-1
+        //bool swap for loop ke bahar inside swapp used 
+        bool swapped=false; //bool datatype se initialize swapp by false                          inilialy no swapp there
+        for(int j=0;j<n-i;j++){
+            if(arr[j]>arr[j+1]){
+                swap(arr[j],arr[j+1]);
+                swapped=true;
+            }
+        }
+        if(swapped==false){//array already sorted case no swapp reqd.
+        break;
+        }
+    }
+}
+
+//function to print array we use i 
+void printArray(int arr[], int n)
+{
+    int i;//declare i for index
+    for (i = 0; i < n; i++){//<n se 0 se n-1 index ke element
+    
+    cout << arr[i] << " ";// print indez element
+    
+    }
+    cout << endl;//ye cout for loop ke bahar ka h print array func k liye
+}
+
+
+int main(){
+    
+      
+    
+  int arr[]={2,3,4,5,6,7};// array declare kiya tha phir no. of block declare
+  int n = sizeof(arr) / sizeof(arr[0]);//no. of blocks in arr=arr.size/size.int
+    
+    bubblesort( arr,  n);
+    
+    cout << "Sorted array after bubble sort is: ";
+    
+    printArray(arr, n);
+    
+    
+
+    
+    return 0;
+}
+
+
+// insertion sort cpp code
+// bubble sort code 
+#include <iostream>
+using namespace std;
+
+void insertionsort(int arr[],int n){
+   
+   for(int i=1;i<n; i++){
+      int temp= arr[i];// initialize i.e, arr[i] ko temp variable me store karadiya
+    
+          int j=i-1;
+      for( int j=i-1 ;j>=0;j--){
+           
+           if(arr[j]>temp){// aar[j] 
+           arr[j+1]=arr[j];// shift kiya j ko j+1 me copy krdiya
+                           //j,j+1 ek se riht me shift to plce right element corr
+         
+       }
+       else{//ruk jao i.e,
+       break;
+   }
+       }
+       arr[j+1]=temp;//j+1 idx ke element ko i idx me shift to shift element               //index i ko j+1 me copy kr diya 
+       
+   }
+}
+
+// A utility function to print 
+// an array of size n 
+void printArray(int arr[], int n) 
+{ 
+    int i; 
+    for (i = 0; i < n; i++) 
+        cout << arr[i] << " "; 
+    cout << endl;
+} 
+
+
+// Driver code
+int main() 
+{ 
+    int arr[] = {12, 11, 13, 5, 6}; 
+    int N = sizeof(arr) / sizeof(arr[0]); 
+  
+    insertionsort(arr, 5); 
+    
+    cout<<"array after insertion sort is "<<endl;
+    
+    printArray(arr, 5); 
+  
+    return 0; 
+} 
+
+
